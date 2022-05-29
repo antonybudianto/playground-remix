@@ -1,7 +1,34 @@
+import type { LoaderFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { json } from "@remix-run/node";
+import PokemonList from "~/components/PokemonList";
+import type { Data } from "~/types/data";
+
+export const loader: LoaderFunction = async () => {
+  try {
+    const res = await fetch(
+      "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10"
+    );
+    if (!res.ok) {
+      throw Error("fetch error");
+    }
+    const jsonData = await res.json();
+    return json(jsonData.results);
+  } catch (e) {
+    console.error(e);
+    return json([]);
+  }
+};
+
 export default function Index() {
+  const products = useLoaderData<Data[]>();
+
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Welcome to Remix</h1>
+      {/* <Suspense fallback={<div>Loading...</div>}> */}
+      <PokemonList products={products} />
+      {/* </Suspense> */}
       <ul>
         <li>
           <a

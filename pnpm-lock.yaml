@@ -11,6 +11,7 @@ specifiers:
   '@types/react-dom': ^18.0.5
   '@vercel/node': ^1.15.2
   eslint: ^8.15.0
+  isbot: 3.5.0
   react: ^18.1.0
   react-dom: ^18.1.0
   typescript: ^4.6.4
@@ -20,6 +21,7 @@ dependencies:
   '@remix-run/react': 1.5.1_react-dom@18.1.0+react@18.1.0
   '@remix-run/vercel': 1.5.1_7b9d176dc0545d4ff948477204c674b8
   '@vercel/node': 1.15.3
+  isbot: 3.5.0
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
 
@@ -3823,6 +3825,11 @@ packages:
   /isarray/1.0.0:
     resolution: {integrity: sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=}
     dev: true
+
+  /isbot/3.5.0:
+    resolution: {integrity: sha512-QOFF7IE7hUdzo8pbhCubeiMzKdLZt+W/UwRZWwg+zghmnqXoMwh2V0bi5UT+oIvoD0IWCWjzAtp30ZrrRwJVCg==}
+    engines: {node: '>=12'}
+    dev: false
 
   /isexe/2.0.0:
     resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=}

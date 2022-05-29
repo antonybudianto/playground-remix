@@ -1,8 +1,9 @@
-import type { LoaderFunction } from "@remix-run/node";
+import { Suspense } from "react";
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import PokemonList from "~/components/PokemonList";
 import type { Data } from "~/types/data";
+import type { LoaderFunction } from "@remix-run/node";
 
 export const loader: LoaderFunction = async () => {
   try {
@@ -26,9 +27,9 @@ export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Welcome to Remix</h1>
-      {/* <Suspense fallback={<div>Loading...</div>}> */}
-      <PokemonList products={products} />
-      {/* </Suspense> */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <PokemonList products={products} />
+      </Suspense>
       <ul>
         <li>
           <a

@@ -4,7 +4,7 @@ import { renderToPipeableStream } from "react-dom/server";
 import isbot from "isbot";
 import { PassThrough } from "stream";
 
-const ABORT_DELAY = 5000;
+const ABORT_DELAY = 1000;
 
 export default function handleRequest(
   request: Request,
@@ -22,9 +22,6 @@ export default function handleRequest(
     const { pipe, abort } = renderToPipeableStream(
       <RemixServer context={remixContext} url={request.url} />,
       {
-        bootstrapScriptContent: `window.__gData = ${JSON.stringify(
-          global.__gData
-        )}`,
         [callbackName]() {
           let body = new PassThrough();
 
